@@ -10,6 +10,12 @@ import React, { Component } from 'react';
 export class Test extends Component {
   static displayName = Test.name;
 
+    getPercent = decimal => {
+        return decimal * 100 + '%'
+    }
+    calcDamage = (atk, str) => {
+        return this.getPercent((str+atk)/97)
+    }
 
     render() {
     return (
@@ -19,6 +25,7 @@ export class Test extends Component {
             <p>AC: {charData.ac}</p>
             <p>Strength: {charData.str}</p>
             <p>Mana: {charData.mana}</p>
+            <p>Damage: {this.calcDamage(charData.atk, charData.str)}</p>
 
       </div>
     );
