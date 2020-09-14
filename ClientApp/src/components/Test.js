@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
 
-    let charData = {
-        atk: 40,
-        ac: 20,
-        str: 15,
-        mana: 18
+const CharClass = ({ name, skill, weapon }) => {
+    return (
+        <section>
+            <h2>{name}</h2>
+            <p>skilled in {skill}</p>
+            <p>wielding {weapon}</p>
+            </section>
+        )
 }
 
-    const getPercent = decimal => {
-        return decimal * 100 + '%'
-    }
-    const calcDamage = (atk, str) => {
-        return getPercent((str+atk)/97)
-    }
-    const TestData = () => {
-        return (
-            <section>
-                <p>Attack: {charData.atk}</p>
-                <p>Damage: {calcDamage(charData.atk, charData.str)}</p>
-                </section>)
-    }
+const Library = () => {
+    return (
+        <div>
+            <CharClass name="Elric" skill="Magic" weapon="Strombringer" />
+            <CharClass name="Conan" skill="Barbrian" weapon="Steel" />
+        </div>
+    )
+}
 
 export class Test extends Component {
   static displayName = Test.name;
@@ -27,9 +25,7 @@ export class Test extends Component {
     render() {
     return (
       <div>
-        <h1>Test Character</h1>
-            <TestData />
-
+            <Library />
       </div>
     );
   }
