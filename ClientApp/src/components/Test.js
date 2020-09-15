@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 
+let charList = [
+    {"name":"Aelien","skill":"Magic","weapon":"Archmage Staff"},
+    {"name":"Eveehi","skill":"Swordmanship","weapon":"Katana"}
+]
+
 const CharClass = ({ name, skill, weapon }) => {
     return (
         <section>
@@ -10,12 +15,13 @@ const CharClass = ({ name, skill, weapon }) => {
         )
 }
 
-const Library = () => {
+const Library = ({ chars }) => {
     return (
         <div>
-            <CharClass name="Elric" skill="Magic" weapon="Strombringer" />
-            <CharClass name="Conan" skill="Barbrian" weapon="Steel" />
-        </div>
+            {chars.map(
+                (cha, i) => <CharClass key={i} name={cha.name} skill={cha.skill} weapon={cha.weapon} />
+               )}
+                </div>
     )
 }
 
@@ -25,7 +31,7 @@ export class Test extends Component {
     render() {
     return (
       <div>
-            <Library />
+            <Library chars={charList} />
       </div>
     );
   }
