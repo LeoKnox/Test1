@@ -26,11 +26,19 @@ const Library = ({ chars }) => {
 }
 
 export class Test extends Component {
-  static displayName = Test.name;
+    static displayName = Test.name;
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            available: true
+        }
+    }
 
     render() {
     return (
       <div>
+            <h1>Characters are {this.state.available ? 'available' : 'all dead'}</h1>
             <Library chars={charList} />
       </div>
     );
