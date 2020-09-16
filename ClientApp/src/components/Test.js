@@ -5,12 +5,13 @@ let charList = [
     {"name":"Eveehi","skill":"Swordmanship","weapon":"Katana"}
 ]
 
-const CharClass = ({ name, skill, weapon }) => {
+const CharClass = ({ name, skill, weapon, IsCharacter }) => {
     return (
         <section>
             <h2>{name}</h2>
             <p>skilled in {skill}</p>
             <p>wielding {weapon}</p>
+            <p>Is Character: {IsCharacter}</p>
             </section>
         )
 }
@@ -19,7 +20,13 @@ const Library = ({ chars }) => {
     return (
         <div>
             {chars.map(
-                (cha, i) => <CharClass key={i} name={cha.name} skill={cha.skill} weapon={cha.weapon} />
+                (cha, i) =>
+                    <CharClass
+                        key={i}
+                        name={cha.name}
+                        skill={cha.skill}
+                        IsCharacter={cha.IsCharacter}
+                        weapon={cha.weapon} />
                )}
                 </div>
     )
@@ -27,7 +34,10 @@ const Library = ({ chars }) => {
 
 export class Test extends Component {
     static displayName = Test.name;
-    state = { available: false }
+    state = {
+        available: false,
+        IsCharacter: true
+    }
 /* state = { available: true } takes place of constructor
     constructor(props) {
         super(props)

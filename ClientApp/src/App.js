@@ -9,7 +9,8 @@ import { Test } from './components/Test';
 import './custom.css'
 
 export default class App extends Component {
-  static displayName = App.name;
+    static displayName = App.name;
+    //state = { IsCharacter: true }
 
   render () {
     return (
