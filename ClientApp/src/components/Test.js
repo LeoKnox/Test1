@@ -16,6 +16,17 @@ const CharClass = ({ name, skill, weapon, IsCharacter }) => {
         )
 }
 
+// Same as const charclass w/o return statement
+const Recruit = () => 
+    <div>
+        <p>Character available to recruit</p>
+    </div>
+
+const NotRecruit = () => 
+    <div>
+        <p>Character not available to recruit</p>
+    </div>
+
 const Library = ({ chars }) => {
     return (
         <div>
@@ -36,7 +47,8 @@ export class Test extends Component {
     static displayName = Test.name;
     state = {
         available: false,
-        IsCharacter: true
+        IsCharacter: true,
+        recruit: false
     }
 /* state = { available: true } takes place of constructor
     constructor(props) {
@@ -58,6 +70,7 @@ export class Test extends Component {
     return (
       <div>
             <h1>Characters are {this.state.available ? 'available' : 'all dead'}</h1>
+            {this.state.recruit ? <Recruit /> : <NotRecruit />}
             <button onClick={this.toggleAvailable}>Kill/rez all</button>
             <Library chars={charList} />
         </div>
